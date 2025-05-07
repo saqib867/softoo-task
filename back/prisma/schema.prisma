@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model GeoJSONData {
+  id        String   @id @default(uuid())
+  name      String
+  geojson   Json
+  // geometry  Json // or String if you prefer
+  createdAt DateTime @default(now())
+}
